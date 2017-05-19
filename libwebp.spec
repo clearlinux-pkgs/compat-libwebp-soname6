@@ -4,7 +4,7 @@
 #
 Name     : libwebp
 Version  : 0.5.2
-Release  : 11
+Release  : 12
 URL      : https://github.com/webmproject/libwebp/archive/v0.5.2.tar.gz
 Source0  : https://github.com/webmproject/libwebp/archive/v0.5.2.tar.gz
 Summary  : Library for the WebP graphics format (decode only)
@@ -103,7 +103,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1495228886
+export SOURCE_DATE_EPOCH=1495232056
 export CFLAGS="$CFLAGS -fstack-protector-strong "
 export FCFLAGS="$CFLAGS -fstack-protector-strong "
 export FFLAGS="$CFLAGS -fstack-protector-strong "
@@ -127,7 +127,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1495228886
+export SOURCE_DATE_EPOCH=1495232056
 rm -rf %{buildroot}
 pushd ../build32/
 %make_install32
@@ -145,26 +145,27 @@ popd
 
 %files bin
 %defattr(-,root,root,-)
-/usr/bin/cwebp
-/usr/bin/dwebp
+%exclude /usr/bin/cwebp
+%exclude /usr/bin/dwebp
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/webp/decode.h
-/usr/include/webp/encode.h
-/usr/include/webp/types.h
-/usr/lib64/libwebp.so
-/usr/lib64/pkgconfig/libwebp.pc
+%exclude /usr/include/webp/decode.h
+%exclude /usr/include/webp/encode.h
+%exclude /usr/include/webp/types.h
+%exclude /usr/lib64/libwebp.so
+%exclude /usr/lib64/pkgconfig/libwebp.pc
 
 %files dev32
 %defattr(-,root,root,-)
-/usr/lib32/libwebp.so
-/usr/lib32/pkgconfig/32libwebp.pc
-/usr/lib32/pkgconfig/libwebp.pc
+%exclude /usr/lib32/libwebp.so
+%exclude /usr/lib32/pkgconfig/32libwebp.pc
+%exclude /usr/lib32/pkgconfig/libwebp.pc
 
 %files doc
 %defattr(-,root,root,-)
-%doc /usr/share/man/man1/*
+%exclude /usr/share/man/man1/cwebp.1
+%exclude /usr/share/man/man1/dwebp.1
 
 %files lib
 %defattr(-,root,root,-)

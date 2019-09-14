@@ -4,7 +4,7 @@
 #
 Name     : compat-libwebp-soname6
 Version  : 0.5.2
-Release  : 7
+Release  : 8
 URL      : https://github.com/webmproject/libwebp/archive/v0.5.2.tar.gz
 Source0  : https://github.com/webmproject/libwebp/archive/v0.5.2.tar.gz
 Summary  : Library for the WebP graphics format (decode only)
